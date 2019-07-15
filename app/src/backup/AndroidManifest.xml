@@ -198,6 +198,8 @@
         <service android:name=".Maps.FetchAddressIntentService" />
         <service android:name=".Auth.DeviceTokenService" />
 
+        <service android:name=".Auth.DeviceTokenIntentService" />
+
         <receiver android:name=".User.Friendship.FriendshipBroadcastReceiver" />
 
         <meta-data

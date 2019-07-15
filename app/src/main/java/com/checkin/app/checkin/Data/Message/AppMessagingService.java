@@ -10,6 +10,7 @@ import android.os.Build;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
 
+import com.checkin.app.checkin.Auth.DeviceTokenIntentService;
 import com.checkin.app.checkin.Auth.DeviceTokenService;
 import com.checkin.app.checkin.Data.Converters;
 import com.checkin.app.checkin.R;
@@ -122,8 +123,8 @@ public class AppMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken(String token) {
         super.onNewToken(token);
-        Intent intent = new Intent(getApplicationContext(), DeviceTokenService.class);
-        intent.putExtra(DeviceTokenService.KEY_TOKEN, token);
+        Intent intent = new Intent(getApplicationContext(), DeviceTokenIntentService.class);
+        intent.putExtra(DeviceTokenIntentService.KEY_TOKEN, token);
         startService(intent);
     }
 }
