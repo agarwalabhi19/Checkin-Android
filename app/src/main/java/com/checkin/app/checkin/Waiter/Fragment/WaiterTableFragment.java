@@ -86,7 +86,8 @@ public class WaiterTableFragment extends BaseFragment {
             if (resource.getStatus() == Status.SUCCESS && resource.getData() != null) {
                 setupTableData(resource.getData());
             } else if (resource.getStatus() == Status.ERROR_NOT_FOUND) {
-                mListener.endSession(mViewModel.getSessionPk());
+                if (mViewModel.getSessionPk() > 0L)
+                    mListener.endSession(mViewModel.getSessionPk());
             }
         });
         mViewModel.getCheckoutData().observe(this, resource -> {

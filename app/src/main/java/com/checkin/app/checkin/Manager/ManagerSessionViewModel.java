@@ -156,6 +156,8 @@ public class ManagerSessionViewModel extends BaseViewModel {
     public LiveData<Integer> getCountNewOrders() {
         return Transformations.map(mOrdersData, input -> {
             List<SessionOrderedItemModel> list = new ArrayList<>();
+            if (input == null || input.getData() == null)
+                return 0;
             if (input.getData() != null) {
                 for (SessionOrderedItemModel item : input.getData())
                     if (item.getStatus() == OPEN)
